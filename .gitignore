@@ -1,10 +1,4 @@
 /node_modules
-/public/hot
-/public/bower_components
-/public/editor
-/public/storage
-/public/public
-/public/upload
 /storage/*.key
 /vendor
 .env
