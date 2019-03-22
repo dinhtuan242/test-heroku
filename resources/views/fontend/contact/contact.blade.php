@@ -20,31 +20,17 @@
                                 {{ session('message') }}
                             </div>
                             @endif
-                            <h3>{{ $sc->name }}</h3>
-                            <p>{{ $sc->describe }}</p>
-                            {{ Form::open(['method' => 'POST', route('postcreatecalendars', $sc->id )]) }}
-                            <h3 class="heading">{{ __('label.setcalendar') }}</h3>
+                            {{ Form::open(['method' => 'POST', route('contacts')]) }}
+                            <h3 class="heading">{{ __('label.contract') }}</h3>
                             <div class="row">
                                 <div class="col-lg-12 ">
                                     <div class="form-group name">
-                                        {{ Form::label('content', trans('message.day')) }}<br>
-                                        {{ Form::date('date') }}
+                                        {{ Form::label('email', trans('message.email')) }}
+                                        {{ Form::text('email', Auth::user()->email, ['class' => 'form-control']) }}
                                     </div>
                                     <div class="form-group name">
-                                        {{ Form::label('content', trans('message.time')) }}
-                                        {{ Form::text('time', null, ['class' => 'form-control', 'placeholder' => __('message.time')]) }}
-                                    </div>
-                                    <div class="form-group name">
-                                        {{ Form::label('content', trans('message.phone')) }}
-                                        {{ Form::text('phone', Auth::user()->phone, ['class' => 'form-control', 'readonly' => 'true']) }}
-                                    </div>
-                                    <div class="form-group name">
-                                        {{ Form::label('content', trans('message.email')) }}
-                                        {{ Form::text('email', Auth::user()->email, ['class' => 'form-control', 'readonly' => 'true']) }}
-                                    </div>
-                                    <div class="form-group name">
-                                        {{ Form::label('content', trans('message.note')) }}<br>
-                                        {!! Form::textarea('note') !!}
+                                        {{ Form::label('content', trans('message.content')) }}<br>
+                                        {{ Form::textarea('title') }}
                                     </div>
                                 <div class="col-lg-4">
                                     {{ Form::submit(__('label.create'), ['class' => 'btn btn-md btn-color', 'name' => 'submit']) }}

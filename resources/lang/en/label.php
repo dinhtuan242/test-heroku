@@ -10,6 +10,9 @@ return [
     'login' => 'Login',
     'sign_up' => 'Sign up',
     'property' => 'Property',
+    'language' => 'Language',
+    'english' => 'English',
+    'vietnam' => 'Vietnamese',
     //footer
     'useful_links' => 'Useful Links',
     'subscribe' => 'Subscribe',
@@ -98,4 +101,16 @@ return [
     'pass_required' => 'Please enter a password!',
     'newpass_required' => 'Please enter a password new!',
     'pass_min' => 'Password must be at least 6 characters long',
+    'search_province' => '--Choose Province--',
+    'search_district' => '--Choose District--',
+    'search_propertyCategory' => '--Choose Property Category--',
+    'search_propertyType' => '--Choose Property Type--',
+    'notification' => 'No results you require',
+    'price_1' => '--select price--',
+    'price_2' => '--agree--',
+    'acreage' => '--select acreage--',
+    'acreage_filter' => '--select acreage--',
+    'setcalendar' => 'Set Calendar',
+    'contract' => 'Contract',
 ];
+

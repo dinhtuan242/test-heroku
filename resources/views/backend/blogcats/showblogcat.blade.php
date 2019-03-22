@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="high">
-        <a>{{ trans('message.bloglist') }}</a>
+        <a>{{ trans('message.blogcate') }}</a>
         <a href="{{ route('addblogcat') }}"><button class="button">{{ trans('message.add') }}</button></a>
     </div>
     <table>
@@ -20,12 +20,12 @@
             <tr>
                 <td>{{ $cb->id }}</td>
                 <td>{{ $cb->name }}</td>
-                <td class="tdshow"><a href="{{ route('editblogcat',$cb->id )}}"><button class="bntshow">{{ trans('message.edit') }}</button></a>
-                <a href="{{ route('deleteblogcat',$cb->id) }}"><button class="bntshowdl">{{ trans('message.delete') }}</button></a></td>
+                <td class="tdshow"><a href="{{ route('editblogcat', $cb->id) }}"><button class="bntshow">{{ trans('message.edit') }}</button></a>
+                <a href="{{ route('deleteblogcat', $cb->id) }}"><button class="bntshowdl">{{ trans('message.delete') }}</button></a></td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    {!! $cat->links(); !!}
+    {{ $cat->links() }}
 </div>
 @endsection
