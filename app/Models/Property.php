@@ -20,6 +20,7 @@ class Property extends Model
         'price',
         'status',
         'form',
+        'image',
     ];
 
     public function districts()
@@ -29,7 +30,7 @@ class Property extends Model
 
     public function setCalendar()
     {
-        return $this->hasMany('App\Models\SetCalendar', 'property_id');
+        return $this->hasMany('App\Models\SetCalendar');
     }
 
     public function propertyImage()

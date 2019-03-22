@@ -86,6 +86,10 @@ Route::group(['prefix' => '/'], function () {
     Route::get('/news/{id}', 'PostController@getPostById')->name('post.view');
 
     Route::post('/news/{id}/comment', 'Product\HomeController@comment')->name('property.comment');
+
+    Route::get('listfollow/{id}', 'UserPageController@listFollow')->name('follow.show');
+
+    Route::get('userfollow/{id}', 'UserPageController@userFollow')->name('follow.user');
 });
 
 //user page
@@ -112,6 +116,10 @@ Route::put('editproperty/{id}', 'PropertyController@update')->name('property.upd
 
 Route::get('destroy/{id}', 'PropertyController@destroy')->name('property.delete');
 
+//filter
+Route::get('filter', 'FilterController@filter')->name('filter.property');
+
+//ajax
 Route::group(['prefix' => 'ajax'], function () {
     Route::get('province/{province_id}', 'AjaxController@getDistrict');
 
@@ -119,8 +127,25 @@ Route::group(['prefix' => 'ajax'], function () {
 });
 
 //set_calendar
-Route::get('calendar/{id}', 'SetCalenderController@create')->name('createcalendar');
-Route::post('calendar/{id}', 'SetCalenderController@postcreate')->name('postcreatecalendar');
+Route::get('calendars/{id}', 'SetCalenderController@create')->name('createcalendars');
+Route::post('calendars/{id}', 'SetCalenderController@postcreate')->name('postcreatecalendars');
 
-Route::get('setcalendarlist', 'SetCalenderController@getlist')->name('setcalendar.index');
-Route::get('deletecalendar/{id}', 'SetCalenderController@getDelete')->name('deletecalendar');
+Route::get('listcalendars', 'SetCalenderController@getlist')->name('setcalendar.index');
+Route::get('deletecalendars/{id}', 'SetCalenderController@getDelete')->name('delete.calendars');
+Route::get('detailcalendars/{id}', 'SetCalenderController@getDetail')->name('detail.calendars');
+
+//post
+Route::get('postlist', 'PostController@showlist');
+
+//contract
+Route::get('contract/{id}', 'ContractController@create')->name('createcontracts');
+Route::post('contract/{id}', 'ContractController@postcreate')->name('contracts');
+
+//contact
+Route::get('contacts', 'ContactController@create')->name('createcontacts');
+Route::post('contacts', 'ContactController@postcreate')->name('contacts');
+
+//i18n
+Route::group(['middleware' => 'locale'], function() {
+    Route::get('change-language/{language}', 'Product\HomeController@changeLanguage')->name('user.change-language');
+});

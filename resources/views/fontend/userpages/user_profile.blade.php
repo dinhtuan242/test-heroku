@@ -16,13 +16,18 @@
                     <div class="detail clearfix">
                         <ul>
                             <li>
-                                <a href="#" class="active">
+                                <a href="{{ route('user_page.edit', Auth::user()->id) }}" class="active">
                                     <i class="flaticon-user"></i>{!! __('label.my_profile') !!}
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('property.show', Auth::user()->id) }}">
                                     <i class="flaticon-house"></i>{!! __('label.my_property') !!}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('follow.show', Auth::user()->id) }}">
+                                    <i class="flaticon-heart-shape-outline"></i>{{ trans('province.listfollow') }}
                                 </a>
                             </li>
                             <li>
@@ -37,7 +42,7 @@
                             </li>
                             <li>
                                 <a href="{{ route('logout') }}">
-                                    <i class="flaticon-logout"></i>{!! __('Logout') !!}
+                                    <i class="flaticon-logout"></i>{!! __('message.Logout') !!}
                                 </a>
                             </li>
                         </ul>
@@ -69,7 +74,7 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group email">
-                                {!! Form::label('email', __('label.email_address')) !!}
+                                {!! Form::label('email', __('label.email')) !!}
                                 {!! Form::email('email', $user->email, ['class' => 'form-control', 'placeholder' => __('label.email_address'), 'readonly' => 'readonly']) !!}
                             </div>
                         </div>
@@ -93,7 +98,7 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="send-btn">
-                                {!! Form::submit(__('label.changes'), ['class' => 'submit-button-change', 'name' => 'change']) !!}
+                                {!! Form::submit(__('label.changes'), ['class' => 'btn btn-md btn-color', 'name' => 'change']) !!}
                             </div>
                         </div>
                     </div>

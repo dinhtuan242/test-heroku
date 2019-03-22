@@ -21,13 +21,13 @@
                             <img class="blog-theme img-fluid" src="{{ asset(config('app.blog_image')) }}/{{ $post->image }}" alt="{{ $post->title }}    ">
                             <div class="detail">
                                 <div class="date-box">
-                                    <h5>{{ $post->created_at }}</h5>
+                                    <h5>{{ $post->created_at->toFormattedDateString() }}</h5>
                                 </div>
                                 <h3>
                                     <a href="{{ route('post.view', $post->id) }}">{{ $post->title }}</a>
                                 </h3>
                                 <div class="post-meta">
-                                    <span><a href="#"><i class="fa fa-user"></i>{{ $post->user->name ?? '' }}</a></span>
+                                    <span><a href="#"><i class="fa fa-user"></i>{{ $post->user['name'] }}</a></span>
                                     <span><a href="{{ route('post.view', $post->id) }}"><i class="fa fa-commenting-o"></i>{{ trans('province.comment') }}</a></span>
                                 </div>
                                 <p>{{ $post->describe }}</p>
@@ -40,7 +40,7 @@
                         <div class="pagination-box hidden-mb-45">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
-                                    <li class="page-item">{!! $posts->links() !!}</li>
+                                    <li class="page-item">{{ $posts->links() }}</li>
                                 </ul>
                             </nav>
                         </div>
@@ -52,10 +52,10 @@
                     <!-- Search box start -->
                     <div class="widget search-box">
                         <h5 class="sidebar-title">{{ trans('province.seach') }}</h5>
-                        {!! Form::open(['method' => 'POST']) !!}
-                            {!! Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Search']) !!}
-                            {!! Form::button("<i class='fa fa-search'></i>", ['class' => 'btn']) !!}
-                        {!! Form::close() !!}
+                        {{ Form::open(['method' => 'POST']) }}
+                            {{ Form::text('search', null, ['class' => 'form-control', 'placeholder' => trans('message.search')]) }}
+                            {{ Form::button("<i class='fa fa-search'></i>", ['class' => 'btn']) }}
+                        {{ Form::close() }}
                     </div>
 
                     <!-- Categories start -->
