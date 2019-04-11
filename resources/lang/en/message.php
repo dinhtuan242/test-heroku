@@ -79,5 +79,16 @@ return [
     'cannotblank' => 'Can not blank!',
     'tooshort' => 'Too short',
     'toolong' => 'Too long',
-    'yourname' => 'Renter name'
+    'yourname' => 'Renter name',
+    'Imagepreview' => 'Image preview...',
+    'recharge' => 'Recharge',
+    'amount' => 'Amount',
+    'puttofirst' => 'Put to first',
+    'amounts' => 'Amount: ',
+    'service' => 'service',
+    // role
+    'add_role_success' => 'Add Role Success',
+    'add_permission_success' => 'Add Permission Success',
+    'edit_role_success' => 'Edit Role Success',
+    'hot_properties' => 'Hot properties',
 ];

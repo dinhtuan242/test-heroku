@@ -14,13 +14,13 @@
     </div>
     <table>
         <tr>
-            <th>#</th>
+            <th>{{ trans('province.stt') }}</th>
             <th>{{ trans('province.name') }}</th>
             <th colspan="2">{{ trans('province.action') }}</th>
         </tr>
-        @foreach ($provinces as $province)
+        @foreach ($provinces as $key => $province)
             <tr>
-                <td>{{ $province->id }}</td>
+                <td>{{ ++$key }}</td>
                 <td>{{ $province->name }}</td>
                 <td><a href="{{ route('province.edit', $province->id) }}">{{ trans('province.edit') }}</a></td>
                 <td><a href="{{ route('province.destroy', $province->id) }}">{{ trans('province.delete') }}</a></td>

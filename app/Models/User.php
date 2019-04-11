@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -22,6 +23,7 @@ class User extends Authenticatable
         'phone',
         'password',
         'avatar',
+        'wallet_id',
     ];
 
     /**
@@ -46,12 +48,12 @@ class User extends Authenticatable
 
     public function rentContract()
     {
-        return $this->hasMany('App\Models\RentContract', 'lessee_id');
+        return $this->hasMany('App\Models\RentContract');
     }
 
-    public function roleUser()
+    public function role()
     {
-        return $this->hasMany('App\Models\RoleUser', 'user_id');
+        return $this->belongsToMany('App\Models\Role');
     }
 
     public function comments()
@@ -68,5 +70,19 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(self::class, 'followers', 'user_id', 'follows_id')
                     ->withTimestamps();
+    }
+
+    public function isFollowing($userId)
+    {
+        return (boolean)$this->follows()->where('follows_id', $userId)->first(['users.id']);
+    }
+
+    public function wallet()
+    {
+        return $this->hasOne('App\Models\Wallet', 'id');
+    }
+    public function service()
+    {
+        return $this->belongsTo('App\Models\Service', 'service_id');
     }
 }

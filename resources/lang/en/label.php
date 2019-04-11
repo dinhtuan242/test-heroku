@@ -50,6 +50,9 @@ return [
     'keep_me_signed_in' => 'Keep Me Signed In',
     'do_not_have_an_account' => 'Do not have an account ? ',
     'sign_up' => 'Sign Up',
+    'facebook_login' => 'Login with FB',
+    'google_login' => 'Login with Google',
+    'github_login' => 'Login with Github',
     //register
     'create_your_account' => 'Create Your account',
     'name' => 'Name',
@@ -108,9 +111,27 @@ return [
     'notification' => 'No results you require',
     'price_1' => '--select price--',
     'price_2' => '--agree--',
-    'acreage' => '--select acreage--',
     'acreage_filter' => '--select acreage--',
+    'form_filter' => '--Form--',
+    'sale' => 'Sale',
+    'rent' => 'Rent',
     'setcalendar' => 'Set Calendar',
     'contract' => 'Contract',
+    //admin authorizing
+    'create_role' => 'Add Role',
+    'name_role' => 'Name Role',
+    'name_permission' => 'Name Permission',
+    'create_permission' => 'Add Permission',
+    'role' => 'Role',
+    'select_permission_with_role' => 'Select Permission with Role',
+    'save' => 'Save',
+    'list_user' => 'List user',
+    'edit_user' =>  'Edit user',
+    //user
+    'all_user' => 'All Users',
+    'no_user' => 'No user',
+    'stt' => 'STT',
+    'join_at' => 'Join at',
+    'hot_property' => 'Hot property',
 ];
 

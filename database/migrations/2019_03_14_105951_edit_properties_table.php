@@ -26,7 +26,7 @@ class EditPropertiesTable extends Migration
     public function down()
     {
         Schema::table('properties', function (Blueprint $table) {
-            $table->string('describe', 255)->change();
+            $table->String('describe')->change();
         });
     }
 }

@@ -13,11 +13,11 @@
   "ignore": [
     "README.md"
   ],
-  "_release": "30c143f30a",
+  "_release": "cb1b30c454",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "30c143f30a74e3b1931857f1a20d16f3c17c946c"
+    "commit": "cb1b30c45452dc556b130369893228405ba57848"
   },
   "_source": "https://github.com/KhaiCM/lib_bower.git",
   "_target": "*",

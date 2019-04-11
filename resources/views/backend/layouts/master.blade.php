@@ -11,7 +11,6 @@
         <a class="active" href="{{ route('adminHome') }}">{{ trans('message.Home') }}</a>
         <a href="{{ route('blog.index') }}">{{ trans('message.New') }}</a>
         <a href="{{ route('contact.index') }}">{{ trans('message.Contact') }}</a>
-        <a href="#about">{{ trans('message.About') }}</a>
         <div class="menu-right">
             <div class="nav-item dropdown">
             <button class="dropbtn"><i class="fa fa-language"></i></button>
@@ -21,7 +20,7 @@
                 </div>
             </div>
             <div class="nav-item dropdown">
-            <img src="{{ asset(config('app.avatar_path') . Auth::user()->avatar) }}" alt="avatar" class="img-avatar">
+            <img src="{{ get_avatar( Auth::user()) }}" alt="avatar" class="img-avatar">
                 <button class="dropbtn">{{ Auth::user()->name }}</button>
                 <div class="dropdown-content">
                     <a href="{{ route('user.detail', Auth::user()->id) }}">{{ trans('message.Detail') }}</a>
@@ -38,8 +37,11 @@
         <a href="{{ route('contact.index') }}">{{ trans('message.Contact') }}</a>
         <a href="{{ route('contract.index') }}">{{ trans('message.contract') }}</a>
         <a href="{{ route('province.index') }}">{{ trans('province.province') }}</a>
+        <a href="{{ route('procat.index') }}">{{ trans('province.propertyCategoy') }}</a>
         <a href="{{ route('district.index') }}">{{ trans('province.district') }}</a>
         <a href="{{ route('setcalendar.index') }}">{{ trans('message.setcalendar') }}</a>
+        <a href="{{ route('role.index') }}">{{ trans('label.role') }}</a>
+        <a href="{{ route('user.list') }}">{{ trans('label.list_user') }}</a>
     </div>
     <div class="main">
         @if (count($errors) > 0)
@@ -55,15 +57,13 @@
                     <div>
                         @endif
                         @yield('content')
-                        <div class="footer">
-                            <h2>{{ trans('message.Footer') }}</h2>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+    <script src="{{ asset('backend/js/style.js') }}"></script>
     <script src="{{ asset('bower_components/ckeditor/ckeditor.js') }}"></script>
     <script> CKEDITOR.replace('editor1'); </script>
 </html>

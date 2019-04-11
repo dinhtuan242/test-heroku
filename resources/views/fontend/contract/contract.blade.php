@@ -20,12 +20,14 @@
                                 {{ session('message') }}
                             </div>
                             @endif
-                            <h3>{{ $ct->name }}</h3>
-                            <p>{{ $ct->describe }}</p>
                             {{ Form::open(['method' => 'POST', route('contracts', $ct->id )]) }}
                             <h3 class="heading">{{ __('label.contract') }}</h3>
                             <div class="row">
                                 <div class="col-lg-12 ">
+                                    <div class="form-group name">
+                                        {{ Form::label('email', trans('message.yourname')) }}
+                                        {{ Form::text('lessee_id', $ct->name, ['class' => 'form-control', 'readonly' => 'true']) }}
+                                    </div>
                                     <div class="form-group name">
                                         {{ Form::label('email', trans('message.yourname')) }}
                                         {{ Form::text('lessee_id', Auth::user()->name, ['class' => 'form-control', 'readonly' => 'true']) }}
@@ -34,7 +36,7 @@
                                         {{ Form::hidden('lessee_id', Auth::user()->id, ['class' => 'form-control', 'readonly' => 'true']) }}
                                     </div>
                                     <div class="form-group name">
-                                        {{ Form::hidden('property_id', $ct->id, ['class' => 'form-control', 'hide' => 'true']) }}
+                                        {{ Form::hidden('property_id', $ct->id, ['class' => 'form-control']) }}
                                     </div>
                                     <div class="form-group name">
                                         {{ Form::label('email', trans('message.youremail')) }}
@@ -84,7 +86,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

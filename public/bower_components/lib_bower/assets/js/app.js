@@ -184,8 +184,6 @@ $(function () {
                 $(this).removeClass('open');
             }
         });
-
-
     });
 
 
@@ -258,7 +256,7 @@ $(function () {
     });
 
     // Select picket activation
-
+    
 
     // Dropdown activation
     $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {

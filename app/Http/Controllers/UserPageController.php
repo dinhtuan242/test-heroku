@@ -10,6 +10,7 @@ use App\Http\Requests\ChangePassRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\EloquentRepository;
+use App\Events\FollowEvent;
 
 class UserPageController extends Controller
 {
@@ -87,8 +88,35 @@ class UserPageController extends Controller
         return view('fontend.follows.listfollow', compact('user'));
     }
 
-    public function userFollow()
+    public function userFollow($id)
     {
-        return view('fontend.follows.userfollow');
+        $user = $this->user->findOrFail($id);
+
+        return view('fontend.follows.userfollow', compact('user'));
+    }
+
+    public function followUser($id)
+    {
+        $user = User::findOrFail($id);
+        if (!$user) {
+
+            return redirect()->back()->with('error', trans('province.error'));
+        }
+        $user->followers()->attach(auth()->user()->id);
+        event(new FollowEvent(trans('province.hasFollow') . auth()->user()->name));
+
+        return redirect()->back()->with('success', trans('province.success'));
+    }
+
+    public function unFollowUser($id)
+    {
+        $user = User::findOrFail($id);
+        if (!$user) {
+
+            return redirect()->back()->with('error', trans('province.error'));
+        }
+        $user->followers()->detach(auth()->user()->id);
+
+        return redirect()->back()->with('success', trans('province.success'));
     }
 }

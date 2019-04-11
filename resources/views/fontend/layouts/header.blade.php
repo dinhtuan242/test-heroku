@@ -22,14 +22,8 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li class="dropdown-submenu"><a class="dropdown-item" href="{{ route('home.sold') }}">{!! __('label.properties_sold')!!}</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{ __('label.rental_property') }}
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li class="dropdown-submenu"><a class="dropdown-item" href="{{ route('home.rent') }}">{{ __('label.rental_property') }}</a></li>
+                                    <li class="dropdown-submenu"><a class="dropdown-item" href="{{ route('home.hot') }}">{{ __('label.hot_property') }}</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -44,6 +38,9 @@
                                 <a class="nav-link" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ __('label.contact_us') }}
                                 </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li class="dropdown-submenu"><a class="dropdown-item" href="{{ route('createcontacts') }}">{{ __('label.contact_us') }}</a></li>
+                                </ul>
                             </li>
                             @if (Auth::check())
                             <li class="nav-item dropdown">
@@ -67,6 +64,7 @@
                                         <li class="dropdown-submenu"><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('message.Logout') }}</a></li>
                                         {!! Form::open(['method' => 'POST', 'route' => 'logout', 'id' => 'logout-form', 'class' => 'hide']) !!}
                                         {!! Form::close() !!}
+                                        <ul id="messages" class="list-group"></ul>
                                     </ul>
                                 </li>
                                 @else
@@ -90,4 +88,3 @@
         </div>
     </div>
 </header>
-

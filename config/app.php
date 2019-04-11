@@ -2,12 +2,14 @@
 
 return [
 
-    'blog_image' => 'public/blog/',
+    'blog_image' => 'upload/blog/',
     'blog_cat_page' => 5,
     'blog_page' => 5,
     'contract_page' => 5,
     'property_path' => 'upload/property/',
     'avatar_path' => 'upload/avatar/',
+    'default_avatar' => '0_48.png',
+    'post_page' => 20,
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -86,7 +88,7 @@ return [
     |
      */
 
-    'locale' => 'en',
+    'locale' => 'vi',
 
     /*
     |--------------------------------------------------------------------------
@@ -99,7 +101,7 @@ return [
     |
      */
 
-    'fallback_locale' => 'vi',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -178,10 +180,11 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 
@@ -233,7 +236,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Pusher' => Pusher\Pusher::class,
     ],
 
 ];

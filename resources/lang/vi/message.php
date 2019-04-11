@@ -85,6 +85,17 @@ return [
     'cannotblank' => 'Không được để trống',
     'tooshort' => 'Quá ngắn',
     'toolong' => 'Quá dài',
-    'yourname' => 'Tên người thuê'
+    'yourname' => 'Tên người thuê',
+    'delete' => 'Xóa',
+    'Imagepreview' => 'Hiển thị hình ảnh...',
+    'recharge' => 'Nạp tiền',
+    'amount' => 'Số tiền',
+    'puttofirst' => 'Đưa lên đầu',
+    'amounts' => 'Số tiền: ',
+    'service' => 'Dịch vụ',
+    //role
+    'add_role_success' => 'Thêm vai trò thành công',
+    'add_permission_success' => 'Thêm quyền thành công',
+    'edit_role_success' => 'Sửa vai trò thành công',
+    'hot_properties' => 'Tài sản nổi bật',
 ];
-

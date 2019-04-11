@@ -18,33 +18,33 @@
      * @param {Object}             options
      * @constructor
      */
-    // var SelectBox = window.SelectBox = function (select, options) {
-    //     if (select instanceof jQuery) {
-    //         if (select.length > 0) {
-    //             select = select[0];
-    //         } else {
-    //             return;
-    //         }
-    //     }
+    var SelectBox = window.SelectBox = function (select, options) {
+        if (select instanceof jQuery) {
+            if (select.length > 0) {
+                select = select[0];
+            } else {
+                return;
+            }
+        }
 
-    //     this.typeTimer     = null;
-    //     this.typeSearch    = '';
-    //     this.isMac         = navigator.platform.match(/mac/i);
-    //     options            = 'object' === typeof options ? options :  {};
-    //     this.selectElement = select;
+        this.typeTimer     = null;
+        this.typeSearch    = '';
+        this.isMac         = navigator.platform.match(/mac/i);
+        options            = 'object' === typeof options ? options :  {};
+        this.selectElement = select;
 
-    //     // Disable for iOS devices (their native controls are more suitable for a touch device)
-    //     if (!options.mobile && navigator.userAgent.match(/iPad|iPhone|Android|IEMobile|BlackBerry/i)) {
-    //         return false;
-    //     }
+        // Disable for iOS devices (their native controls are more suitable for a touch device)
+        if (!options.mobile && navigator.userAgent.match(/iPad|iPhone|Android|IEMobile|BlackBerry/i)) {
+            return false;
+        }
 
-    //     // Element must be a select control
-    //     if ('select' !== select.tagName.toLowerCase()) {
-    //         return false;
-    //     }
+        // Element must be a select control
+        if ('select' !== select.tagName.toLowerCase()) {
+            return false;
+        }
 
-    //     this.init(options);
-    // };
+        this.init(options);
+    };
 
     /**
      * @type {String}

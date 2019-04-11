@@ -70,6 +70,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'login.admin'], function () {
         Route::get('contactlist', 'ContactController@getlist')->name('contact.index');
         Route::get('deletecontact/{id}', 'ContactController@getDeleteContact')->name('deletecontact');
     });
+
+    //tesst role
+    Route::group(['prefix' => 'authorizing'], function () {
+        Route::get('role', 'Admin\RoleController@getRole')->name('role.index');
+        Route::post('role', 'Admin\RoleController@postRole')->name('role.create');
+        Route::post('permission', 'Admin\RoleController@postPermission')->name('permission.create');
+        Route::post('set-permission', 'Admin\RoleController@setPermission')->name('permission.set');
+        Route::get('list-user', 'Admin\UserController@index')->name('user.list');
+        Route::get('edit-user/{id}', 'Admin\UserController@editPermission')->name('user.edit');
+        Route::post('edit-user/{id}', 'Admin\RoleController@setRole')->name('user.editRole');
+    });
 });
 
 Route::group(['prefix' => '/'], function () {
@@ -81,6 +92,8 @@ Route::group(['prefix' => '/'], function () {
 
     Route::get('/prorent', 'Product\HomeController@getProRent')->name('home.rent');
 
+    Route::get('/prohot', 'Product\HomeController@getProHot')->name('home.hot');
+
     Route::get('/news', 'PostController@getPost')->name('post.index');
 
     Route::get('/news/{id}', 'PostController@getPostById')->name('post.view');
@@ -90,6 +103,10 @@ Route::group(['prefix' => '/'], function () {
     Route::get('listfollow/{id}', 'UserPageController@listFollow')->name('follow.show');
 
     Route::get('userfollow/{id}', 'UserPageController@userFollow')->name('follow.user');
+
+    Route::post('userfollow/{id}/follow', 'UserPageController@followUser')->name('user.follow');
+
+    Route::delete('/{id}/unfollow', 'UserPageController@unFollowUser')->name('user.unfollow');
 });
 
 //user page
@@ -125,7 +142,6 @@ Route::group(['prefix' => 'ajax'], function () {
 
     Route::get('property_category/{property_category_id}', 'AjaxController@getPropertyType');
 });
-
 //set_calendar
 Route::get('calendars/{id}', 'SetCalenderController@create')->name('createcalendars');
 Route::post('calendars/{id}', 'SetCalenderController@postcreate')->name('postcreatecalendars');
@@ -140,6 +156,7 @@ Route::get('postlist', 'PostController@showlist');
 //contract
 Route::get('contract/{id}', 'ContractController@create')->name('createcontracts');
 Route::post('contract/{id}', 'ContractController@postcreate')->name('contracts');
+Route::get('detailcontracts/{id}', 'ContractController@getDetail')->name('detail.contracts');
 
 //contact
 Route::get('contacts', 'ContactController@create')->name('createcontacts');
@@ -149,3 +166,15 @@ Route::post('contacts', 'ContactController@postcreate')->name('contacts');
 Route::group(['middleware' => 'locale'], function() {
     Route::get('change-language/{language}', 'Product\HomeController@changeLanguage')->name('user.change-language');
 });
+
+//login with face, github
+Route::get('redirect/{social}', 'Auth\SocialAuthController@redirect')->name('redirect.login');
+Route::get('callback/{social}', 'Auth\SocialAuthController@callback');
+
+//recharge
+Route::get('recharge/{id}', 'RechargeController@in')->name('recharge.in');
+Route::post('recharge/{id}', 'RechargeController@postin')->name('recharge.post');
+
+//service
+Route::get('service/{id}', 'ServiceController@in')->name('service.in');
+Route::post('service/{id}', 'ServiceController@postIn')->name('service.post');
